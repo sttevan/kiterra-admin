@@ -1,0 +1,107 @@
+<head>
+	<title>projekat</title>
+</head>
+<body>
+
+	{{> tabela}}
+	
+</body>
+<template name="edit">
+<input type="button" class="edit" value='EDIT'>
+</template>
+<template name="editdialog">
+<div id="dialog-modal">
+<div class="mask"> </div>
+  <div class="modal">
+    <div class="modal-header">
+      <button type="button" class="close done">&times;</button>
+      <h3>Invite people</h3>
+    </div>
+
+    <div class="modal-body">
+     
+    </div>
+
+    <div class="modal-footer">
+      <a href="#" class="btn btn-primary done">Done</a>
+    </div>
+  </div>
+ </div>
+</template>
+<template name="tabela">
+	{{#if showeditdialog}}
+		{{> editdialog}}
+	{{/if}}
+
+	Search e-mail: 
+	<input type="text" class="search">
+	<div>
+		<input type="image" class="first" src="first.gif" />
+		<input type="image" class="prev" src="prev.gif" />
+		<input type="text" class="pageno" size="2" value="{{result}}"/>
+		<input type="image" class="next" src="next.gif" />
+		<input type="image" class="last" src="last.gif" />
+	Number of results: {{noofpages}}
+	</div>
+<table id="table">
+
+		<thead>
+			<th></th>
+			<th class="idc">ID</th>
+			<th class="namec">NAME</th>
+			<th class="statusc">STATUS</th>
+			<th class="authorshipc">AUTHORSHIP</th>
+			<th class="featuredc">FEATURED</th>
+			<th class="reviewc">REVIEW</th>
+			<th class="urlc">URL</th>
+		</thead>
+		<tbody>
+			{{> lista_ljudi}}
+		</tbody>
+ 	</table>
+	{{> edit}}
+</template>
+<template name="lista_ljudi">
+	{{#each osoba}}
+		{{> info}}
+	{{else}}
+		Nema ljudi.
+	{{/each}}
+</template>
+<template name="info" >
+		{{#if selection}}
+			<tr class="row selectr">
+			<div>
+		{{else}}
+			<tr class="row">
+			<div readonly="readonly">
+		{{/if}}
+		<div class='person'>
+		<td>
+			<input  type="checkbox" class="checkcheck" {{check_check}}/> <!--onclick="obelezi(this)"/>-->
+		</td>
+		<td>
+			{{id}}
+		</td>
+		<td>	
+			<div><input type="text" class="name" value='{{name}}'/></div>
+		</td>
+		<td>
+			<div><input class="checks"  type="checkbox"  {{{status_check}}} /></div>
+		</td>
+		<td>
+			<div><input type="text" class="authorship" value='{{authorship}}'/></div>
+		</td>
+		<td>
+			<input class="checkf" type="checkbox"  {{{featured_check}}} />
+		</td>
+		<td>
+			<div><input type="text" class="review" value='{{review}}'/></div>
+		</td>
+		<td>
+			<div><input type="text" class="url" value='{{url}}'/></div>
+		</td>
+		</div>
+		</div>
+ 	</tr>
+</template>

@@ -1,0 +1,39 @@
+
+#table{
+	background-color: whiteSmoke;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+#table td, #table th {
+}
+.selectr{
+	background-color: pink;
+}
+#table th {
+	color: #333;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	text-align: center;
+	color: #0000ff;
+	padding: 0 20px;
+}
+#table td {
+	padding: 0 20px;
+	line-height: 20px;
+	color: #0084B4;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #fff;
+	text-align: center;
+}
+#table th:hover{
+	text-decoration: underline overline;
+	color: red;
+}
+#table td:hover {
+	background-color: #ff0;
+}
